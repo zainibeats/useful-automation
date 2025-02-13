@@ -5,7 +5,7 @@ A collection of utility scripts for various file operations, media downloads, an
 ## Project Structure
 
 - **Batch/** - Windows batch scripts for media processing
-  - `resize_media.bat` - Versatile image resizing and processing script (supports GIF, PNG, JPG, WebP, etc.)
+  - `resize_media.bat` - Lightweight image resizing script (supports GIF, PNG, JPG, JPEG)
 
 - **PowerShell/** - Windows-specific utility scripts
   - `rename-files-from-list.ps1` - Batch rename files using a reference list
@@ -36,11 +36,10 @@ A collection of utility scripts for various file operations, media downloads, an
 ## Features
 
 ### Media Processing
-- Image resizing and format conversion
-- Support for modern image formats (WebP, AVIF)
-- Pixel art upscaling
-- Photo optimization
-- Animated GIF handling
+- Basic image resizing with custom scale
+- Support for common image formats
+- Directory-based batch processing
+- Interactive command-line interface
 
 ### File Management
 - Batch file renaming
