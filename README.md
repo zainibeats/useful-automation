@@ -71,8 +71,8 @@ Each script directory contains its own README with specific usage instructions a
 
 ## Contributing
 
-Feel free to submit issues and enhancement requests. Pull requests are welcome.
+Feel free to submit issues and enhancement requests. Pull requests are welcome
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License

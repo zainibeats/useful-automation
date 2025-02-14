@@ -1,6 +1,6 @@
 # PowerShell Utility Scripts
 
-This directory contains PowerShell scripts for various file operations.
+This directory contains PowerShell scripts for various file operations
 
 ## Scripts
 
