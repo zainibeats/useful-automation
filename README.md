@@ -1,4 +1,4 @@
-# Useful Automation
+# Personal Utility Scripts
 
 A collection of utility scripts for various file operations, media downloads, and file transfers. This repository contains PowerShell, Batch, and Shell scripts to automate common tasks.
 
@@ -11,6 +11,8 @@ A collection of utility scripts for various file operations, media downloads, an
   - `rename-files-from-list.ps1` - Batch rename files using a reference list
 
 - **Shell/** - Bash shell scripts for various operations
+  - `append-mp3.sh` - Append .mp3 extension to files in a directory
+  - `remote_mount.sh` - Mount remote filesystem via SSHFS with VPN bypass
   - `yt-dlp-from-txt.sh` - Download media from URLs listed in a text file
   - `ssh_wav-mp3.sh` - Transfer audio files (WAV/MP3) to a remote server via SSH
   - `ssh-wav-mp3-master-stems.sh` - Transfer master audio files while handling stem files
@@ -31,7 +33,9 @@ A collection of utility scripts for various file operations, media downloads, an
 - Required tools:
   - `yt-dlp` for media downloads
   - `rsync` for file transfers
-  - SSH access and configuration for remote transfers
+  - `sshfs` for remote mounting
+  - SSH access and configuration for remote operations
+  - Mullvad VPN (optional, for VPN bypass operations)
 
 ## Features
 
@@ -46,11 +50,17 @@ A collection of utility scripts for various file operations, media downloads, an
 - Directory organization
 - File transfer and synchronization
 - Remote file operations
+- Extension management
 
 ### Media Downloads
 - Batch URL processing
 - Audio file management
 - Support for various media sources
+
+### Remote Operations
+- SSHFS mounting with VPN bypass
+- Secure file transfers
+- Remote directory synchronization
 
 ## Usage
 

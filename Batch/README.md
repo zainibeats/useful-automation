@@ -1,12 +1,12 @@
 # Batch Utility Scripts
 
-This directory contains Windows Batch scripts for various file operations.
+This directory contains Windows Batch scripts for various file operations
 
 ## Scripts
 
 ### resize_media.bat
 
-A lightweight utility script for batch resizing images while preserving quality. Processes files recursively in the specified directory.
+A lightweight utility script for batch resizing images while preserving quality. Processes files recursively in the specified directory
 
 #### Requirements
 - Windows operating system

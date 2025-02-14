@@ -1,12 +1,75 @@
 # Shell Scripts
 
-This directory contains Bash shell scripts for media downloads and file transfers.
+This directory contains Bash shell scripts for media downloads and file transfers
 
 ## Scripts
 
+### append-mp3.sh
+
+Appends .mp3 extension to all files in a specified directory
+
+#### Requirements
+- Bash shell environment
+- Write permissions in target directory
+
+#### Usage
+1. Update the target directory:
+   ```bash
+   TARGET_DIR="/path/to/your/folder"
+   ```
+
+2. Make the script executable:
+   ```bash
+   chmod +x append-mp3.sh
+   ```
+
+3. Run the script:
+   ```bash
+   ./append-mp3.sh
+   ```
+
+#### Features
+- Processes all files in target directory
+- Adds .mp3 extension to each file
+- Skips directories and special files
+- Simple error handling for directory validation
+
+### remote_mount.sh
+
+Mounts remote filesystem via SSHFS with Mullvad VPN's mullvad-exclude functionality
+
+#### Requirements
+- SSHFS installed
+- Mullvad VPN with mullvad-exclude
+- SSH access to remote server
+
+#### Usage
+1. Configure the connection variables:
+   ```bash
+   server="user@serverip"     # Your SSH username and server
+   port="customport"          # Your SSH port (or 22 for default)
+   ```
+
+2. Make the script executable:
+   ```bash
+   chmod +x remote_mount.sh
+   ```
+
+3. Run the script:
+   ```bash
+   ./remote_mount.sh
+   ```
+
+#### Features
+- Creates mount directory if not exists
+- Handles custom SSH ports
+- Maintains connection with keepalive settings
+- Bypasses VPN for mount connection
+- Verifies successful mounting
+
 ### yt-dlp-from-txt.sh
 
-Downloads media from a list of URLs using yt-dlp.
+Downloads media from a list of URLs using yt-dlp
 
 #### Requirements
 - yt-dlp installed
@@ -31,7 +94,7 @@ Downloads media from a list of URLs using yt-dlp.
 
 ### ssh_wav-mp3.sh
 
-Transfers WAV and MP3 files to a remote server using rsync over SSH.
+Transfers WAV and MP3 files to a remote server using rsync over SSH
 
 #### Requirements
 - rsync
