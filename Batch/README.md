@@ -2,6 +2,30 @@
 
 This directory contains Windows Batch scripts for various file operations
 
+## ez-release
+
+A modular, cross-language release automation toolkit for Windows developers.
+
+### Features
+- **Semantic Versioning**: Automatically increment major, minor, or patch versions
+- **Cross-Language Support**: Works with JavaScript/Node.js, Python, Rust, C#, Java, and Go
+- **Modular Design**: Use only the components you need for your project
+- **Build Optimization**: Language-specific optimizations for better build performance
+- **GPG Signing**: Securely sign your releases with GPG
+- **Release Packaging**: Create comprehensive release packages with documentation
+
+### Main Components
+- `release.bat` - Main script that orchestrates the entire release process
+- `config.bat` - Central configuration for customizing the toolkit to your project
+- `custom-build-steps.bat` - Add project-specific build steps
+- `increment-version.bat` - Handle semantic version increments
+- `update-version.bat` - Update version references in project files
+- `optimize-build.bat` - Optimize your build environment
+- `sign-and-package.bat` - Create signed release packages
+- `template-processor.bat` - Process templates for release documentation
+
+See the [ez-release README](./ez-release/README.md) for detailed usage instructions.
+
 ## Scripts
 
 ### resize_media.bat
