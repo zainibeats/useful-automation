@@ -1,5 +1,5 @@
 #!/bin/bash
-# remote_mount.sh
+# remote-mount.sh
 # Purpose: Mount remote filesystem via SSHFS with VPN bypass
 # Requirements: 
 #   - SSHFS installed

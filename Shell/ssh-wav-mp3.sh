@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# ssh_wav-mp3.sh
+# ssh-wav-mp3.sh
 # Purpose: Transfer WAV and MP3 files to a remote server using rsync over SSH
 
 # Configuration variables
@@ -9,7 +9,7 @@ SOURCE_DIR="/path/to/source/folder"
 
 # Remote destination in format: user@host:/path
 # Ensure SSH key-based authentication is configured
-DEST_SSH="user@192.661.0.10:/destination/folder"
+DEST_SSH="user@192.xxx.x.xx:/destination/folder"
 
 # Validate source directory exists
 if [ ! -d "$SOURCE_DIR" ]; then
