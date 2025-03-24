@@ -19,6 +19,7 @@ A collection of utility scripts for various file operations, media downloads, an
   - `append-mp3.sh` - Append .mp3 extension to files in a directory
   - `remote_mount.sh` - Mount remote filesystem via SSHFS with VPN bypass
   - `yt-dlp-from-txt.sh` - Download media from URLs listed in a text file
+  - `yt-dlp-tv-from-txt.sh` - Same as yt-dlp-from-txt but with automated naming of episodes
   - `ssh_wav-mp3.sh` - Transfer audio files (WAV/MP3) to a remote server via SSH
   - `ssh-wav-mp3-master-stems.sh` - Transfer master audio files while handling stem files
 

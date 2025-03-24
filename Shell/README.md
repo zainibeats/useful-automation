@@ -92,6 +92,33 @@ Downloads media from a list of URLs using yt-dlp
    ./yt-dlp-from-txt.sh
    ```
 
+### yt-dlp-tv-from-txt.sh
+
+#### Requirements
+- yt-dlp installed
+- Bash shell environment
+
+#### Usage
+1. Update the script variables:
+   ```bash
+   URL_FILE="/path/to/txt/file"      # File containing URLs, one per line
+   DOWNLOAD_DIR="/path/to/target/directory/"  # Directory where a new folder will be created to store episodes in
+   ```
+
+2. Make the script executable:
+   ```bash
+   chmod +x yt-dlp-tv-from-txt.sh
+   ```
+
+3. Run the script:
+   ```bash
+   ./yt-dlp-tv-from-txt.sh
+   ```
+#### Features
+- Automatically creates directory with the name of the .txt file
+- Checks for already-downloaded episodes
+- Automatically numbers each episode
+
 ### ssh_wav-mp3.sh
 
 Transfers WAV and MP3 files to a remote server using rsync over SSH
