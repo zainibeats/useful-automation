@@ -6,14 +6,10 @@ A collection of utility scripts for various file operations, media downloads, an
 
 - **Batch/** - Windows batch scripts
   - `resize_media.bat` - Lightweight image resizing script (supports GIF, PNG, JPG, JPEG)
-  - **ez-release/** - Modular release automation toolkit designed for Windows developers.
-    - Cross-language software release automation (Node.js, Python, Rust, C#, Java, Go)
-    - Version management with semantic versioning support
-    - Build optimization and customization
-    - GPG signing and secure packaging
 
 - **PowerShell/** - Windows-specific utility scripts
   - `rename-files-from-list.ps1` - Batch rename files using a reference list
+  - **ez-release/** - Configurable release automation script (versioning, building, packaging, signing).
 
 - **Shell/** - Bash shell scripts for various operations
   - `append-mp3.sh` - Append .mp3 extension to files in a directory
@@ -72,7 +68,6 @@ A collection of utility scripts for various file operations, media downloads, an
 
 Each script directory contains its own README with specific usage instructions and examples. Please refer to:
 - [Batch Scripts Documentation](./Batch/README.md)
-- [ez-release Documentation](./Batch/ez-release/README.md)
 - [PowerShell Scripts Documentation](./PowerShell/README.md)
 - [Shell Scripts Documentation](./Shell/README.md)
 
