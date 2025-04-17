@@ -9,7 +9,7 @@ A collection of utility scripts for various file operations, media downloads, an
 
 - **PowerShell/** - Windows-specific utility scripts
   - `rename-files-from-list.ps1` - Batch rename files using a reference list
-  - **ez-release/** - A modular system for automating software releases (versioning, building, packaging, signing). See the [ez-release README](./PowerShell/ez-release/README.md) for details.
+  - **ez-release/** - A modular system for automating software releases (versioning, building, packaging, signing). See the [ez-release README](PowerShell/ez-release/README.md) for details.
 
 - **Shell/** - Bash shell scripts for various operations
   - `append-mp3.sh` - Append .mp3 extension to files in a directory
