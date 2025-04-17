@@ -57,67 +57,23 @@ A versatile script to batch rename files using a list of names from a text file.
 
 ### ez-release/New-Release.ps1
 
-A modular and configurable PowerShell script designed to automate the software release process. It handles version detection, building, packaging, and optional GPG signing based on a project-specific configuration file.
+A modular and configurable PowerShell script system designed to automate the software release process. It handles version detection, building, packaging, and optional GPG signing based on a project-specific configuration file.
 
-Located in the `ez-release` subdirectory.
+Located in the `ez-release` subdirectory. See the [ez-release README](./ez-release/README.md) for detailed usage, configuration, and language-specific templates (Python, Rust).
 
-#### Features
+#### Key Features
 
-- **Configurable:** Define project specifics (name, version source, build steps, artifacts) in a simple PowerShell configuration file (`release.config.ps1`).
-- **Flexible Versioning:** Extract version numbers from files using regex (support for Git tags planned).
-- **Build Integration:** Executes your existing build script (e.g., `.ps1`, `.bat`, `make`) with configurable arguments.
-- **Artifact Packaging:** Automatically gathers specified build artifacts (e.g., executables, libraries) and documentation files.
-- **GPG Signing:** Optionally signs packaged executables using a configured GPG key.
-- **Output:** Creates organized release directories and ZIP archives for different artifact types (e.g., portable, installer).
+- **Configurable:** Define project specifics in `release.config.ps1`.
+- **Build Integration:** Executes your existing project build script.
+- **Automated Packaging:** Gathers artifacts and docs into ZIPs.
+- **Optional Signing:** Supports GPG signing of executables.
 
-#### Requirements
+#### Basic Usage
 
-- Windows PowerShell or PowerShell Core.
-- A `release.config.ps1` file (see `ez-release/release.config.example.ps1`) defining the release process for your project.
-- The build script specified in the configuration must be present and executable.
-- GPG installed and configured in the system PATH (required only if signing is enabled).
-
-#### Usage
-
-1.  **Configure:** Copy `ez-release/release.config.example.ps1` to `release.config.ps1` (or another location) and customize it for your project.
-2.  **Run:** Execute the script from your project root or specify the configuration path:
-
+1.  Follow the setup instructions in the [ez-release README](./ez-release/README.md).
+2.  Run from your project root:
     ```powershell
-    # Use default ./release.config.ps1
-    ./PowerShell/ez-release/New-Release.ps1
-    
-    # Specify a custom config path
-    ./PowerShell/ez-release/New-Release.ps1 -ConfigPath ./deploy/my-release-config.ps1
-    
-    # Skip the build step (use existing artifacts)
-    ./PowerShell/ez-release/New-Release.ps1 -NoBuild
-    
-    # Skip GPG signing
-    ./PowerShell/ez-release/New-Release.ps1 -NoSign
-    
-    # Pass additional arguments to the build script
-    ./PowerShell/ez-release/New-Release.ps1 -BuildArgs @{ NoConsole = $true; Verbose = $true }
-    
-    # Pass -Clean switch to the build script
-    ./PowerShell/ez-release/New-Release.ps1 -CleanBuild
+    .\New-Release.ps1
     ```
 
-See the script's comment-based help for more details on parameters:
-
-```powershell
-Get-Help ./PowerShell/ez-release/New-Release.ps1 -Full
-```
-
-#### Configuration (`release.config.ps1`)
-
-This file returns a PowerShell hashtable defining the release parameters. Key settings include:
-
-- `ProjectName`: Your application's name.
-- `VersionSource`: How to find the version (File path + Regex, Git tag planned).
-- `BuildScriptPath`: Path to your build script.
-- `BuildOutputDir`: Where your build script places artifacts.
-- `Artifacts`: Defines what to package (e.g., Portable executable, Installer), how to find them (`SourcePattern`), where to put them (`TargetDir`), and the final zip name (`PackageNameSuffix`).
-- `DocFiles`: List of documentation files (README, LICENSE, etc.) to include.
-- `GpgKeyId`: Your GPG key ID for signing (leave empty to disable).
-
-Refer to `ez-release/release.config.example.ps1` for detailed structure and examples. 
+Refer to the `ez-release` documentation for advanced options and detailed configuration. 
