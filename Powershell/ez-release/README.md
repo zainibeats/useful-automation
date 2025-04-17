@@ -65,7 +65,7 @@ To use this template:
 
 ## TrueFA-Py Concrete Example
 
-In addition to the generic `*.example.*` files, this directory also contains the **specific, working configuration and build files** used for the [TrueFA-Py](https://github.com/your-username/truefa-py) project (replace with the actual link if available). These serve as a real-world example of how the templates can be adapted.
+In addition to the generic `*.example.*` files, this directory also contains the **specific, working configuration and build files** used for the [TrueFA-Py](https://github.com/zainibeats/truefa-py) project. These serve as a real-world example of how the templates can be adapted.
 
 **Included TrueFA-Py Files:**
 - `release.config.ps1`: The actual configuration used for TrueFA-Py.
