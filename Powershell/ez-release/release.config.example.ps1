@@ -1,66 +1,76 @@
-# Configuration template for New-Release.ps1
-# Rename this file to 'release.config.ps1' in your project root or specify its path via -ConfigPath
+# Example Configuration for New-Release.ps1
+# Rename this file to 'release.config.ps1' in your project root and customize it.
 
-# Return a hashtable with the configuration settings
-@{    
+@{
     # --- Project Information ---
-    ProjectName = "YourProjectName" # Used in filenames and messages
+    # The name of your project. Used for naming release artifacts.
+    ProjectName = "MyAwesomeProject"
 
     # --- Version Source ---
-    # Define how the script finds the current version.
-    # Supported Types: "File", "GitTag" (GitTag not yet implemented)
+    # How the script determines the project's current version.
     VersionSource = @{
-        Type     = "File" # Or "GitTag"
-        FilePath = "src\__init__.py" # Relative path to the version file (for Type = "File")
-        Pattern  = "__version__ = '([0-9]+\.[0-9]+\.[0-9]+)'" # Regex to extract version (for Type = "File")
-                                                                # Must contain one capturing group for the version string.
-        # TagPrefix = "v" # Optional prefix for Git tags (for Type = "GitTag")
+        # Type: 'File' or 'GitTag' (GitTag not implemented yet)
+        Type     = "File"
+        # FilePath: Path relative to project root containing the version string.
+        FilePath = "src\__init__.py" # Example for Python
+        # Pattern: Regex pattern to extract the version number. MUST have one capture group for the version.
+        Pattern  = "__version__ = '([0-9]+\.[0-9]+\.[0-9]+)'" # Example for Python: __version__ = '1.2.3'
+        # --- OR --- Example for other files:
+        # FilePath = "version.txt"
+        # Pattern  = "^([0-9]+\.[0-9]+\.[0-9]+)$" # Example for version.txt containing only '1.2.3'
     }
 
     # --- Build Process ---
-    BuildScriptPath = ".\ref\build.ps1" # Relative path to the project's build script (e.g., build.ps1, build.bat, makefile)
-    BuildOutputDir  = "dist"             # Relative path to the directory where build artifacts are placed by the build script
-    
+    # BuildScriptPath: Path relative to project root of the script that builds your project.
+    # This script will be executed by New-Release.ps1.
+    BuildScriptPath = "build.ps1" # Example: A PowerShell build script
+    # BuildOutputDir: Path relative to project root where the build script places its output artifacts.
+    BuildOutputDir  = "dist"
+
     # --- Artifact Packaging ---
-    # Define the artifacts to package. The keys ("Portable", "Installer") can be anything descriptive.
-    # Each key maps to a hashtable defining:
-    #   - SourcePattern: File pattern (relative to BuildOutputDir) to find the main artifact (e.g., *.exe, *.jar).
-    #   - TargetDir: Name of the subdirectory within the 'release' folder for this artifact type.
-    #   - PackageNameSuffix: String appended to the project name for the final zip file (e.g., "-Portable", "-Installer").
-    #   - IncludeInBuildArgs: $true/$false. If true, the key name (e.g., "Portable") is passed as a switch (e.g., "-Portable") to the build script.
+    # Defines the different types of release packages you want to create.
+    # Each key (e.g., 'WindowsPortable', 'LinuxBinary') represents an artifact type.
     Artifacts = @{
-        Portable = @{
-            SourcePattern      = "$($ProjectName).exe" # Example: Find YourProjectName.exe
-            TargetDir          = "portable"
-            PackageNameSuffix  = "-Portable"
-            IncludeInBuildArgs = $true # Pass -Portable to the build script
+        # Example: A portable Windows executable package
+        WindowsPortable = @{
+            # SourcePattern: File/directory name or pattern (relative to BuildOutputDir) of the main artifact to package.
+            # Can include wildcards (*, ?). Use '\\' for path separators if needed (e.g., "subdir\\MyExe.exe").
+            SourcePattern      = "MyAwesomeProject.exe"
+            # TargetDir: Name of the subfolder within the 'release' directory where this artifact will be staged before zipping.
+            TargetDir          = "win-portable"
+            # PackageNameSuffix: Suffix added to the project name for the final ZIP file name.
+            PackageNameSuffix  = "-Windows-Portable"
+            # IncludeInBuildArgs: If $true, the key name ('WindowsPortable') is passed as a switch (-WindowsPortable) to the BuildScriptPath.
+            # Useful for telling your build script which artifact type to build.
+            IncludeInBuildArgs = $true
         }
-        Installer = @{
-            SourcePattern      = "$($ProjectName)*Setup*.exe" # Example: Find YourProjectName_Setup_1.0.0.exe
-            TargetDir          = "installer"
-            PackageNameSuffix  = "-Installer"
-            IncludeInBuildArgs = $true # Pass -Installer to the build script
+        # Example: A Windows installer package
+        WindowsInstaller = @{
+            SourcePattern      = "MyAwesomeProject_Setup_*.exe" # Example using wildcard for version
+            TargetDir          = "win-installer"
+            PackageNameSuffix  = "-Windows-Installer"
+            IncludeInBuildArgs = $true
         }
-        # Add more artifact types if needed (e.g., Library, SourceCode)
-        # SourceCode = @{
-        #     SourcePattern      = "*.zip" # Example: Assume build script creates a source zip
-        #     TargetDir          = "source"
-        #     PackageNameSuffix  = "-Source"
-        #     IncludeInBuildArgs = $false 
-        # }
+        # Example: A generic binary package (e.g., for Linux)
+        LinuxBinary = @{
+            SourcePattern      = "myawesomeproject"
+            TargetDir          = "linux-binary"
+            PackageNameSuffix  = "-Linux-x64"
+            IncludeInBuildArgs = $false # Maybe the default build script already produces this
+        }
     }
-    
+
     # --- Documentation Files ---
-    # List of relative paths to documentation files to include in each artifact package.
+    # List of documentation or other files (relative to project root) to include in EACH artifact package.
     DocFiles = @(
         "README.md",
         "LICENSE",
         "CHANGELOG.md"
-        # Add other files like SECURITY.md, CONTRIBUTING.md etc.
     )
 
-    # --- Signing ---
-    # GPG Key ID for signing executables. Leave empty or remove if signing is not needed.
-    # The GPG key must be available in the environment where the script runs.
-    GpgKeyId = "YOUR_GPG_KEY_ID" # Example: "8910ACB66A475A28"
+    # --- Signing (Optional) ---
+    # GpgKeyId: Your GPG Key ID (long format) to sign *.exe files found in the artifact staging directories.
+    # Leave empty or remove the key to disable signing.
+    # Requires GPG to be installed and in PATH.
+    GpgKeyId = ""
 } 
