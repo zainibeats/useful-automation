@@ -36,9 +36,7 @@ while IFS= read -r url; do
     ep=$(printf "%02d" "$episode")
     
     # Download media using yt-dlp with the output filename template
-    yt-dlp -o "$OUTPUT_DIR/${BASE_NAME}_Episode_${ep}.%(ext)s" "$url"
-    
+    yt-dlp --downloader ffmpeg --hls-use-mpegts -o "$OUTPUT_DIR/${BASE_NAME}_Episode_${ep}.%(ext)s" "$url"
     # Increment the episode counter
     episode=$((episode + 1))
 done < "$URL_FILE"
-

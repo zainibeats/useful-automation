@@ -12,12 +12,15 @@ A collection of utility scripts for various file operations, media downloads, an
   - **ez-release/** - A modular system for automating software releases (versioning, building, packaging, signing). See the [ez-release README](/PowerShell/ez-release/README.md) for details.
 
 - **Shell/** - Bash shell scripts for various operations
-  - `append-mp3.sh` - Append .mp3 extension to files in a directory
+  - **yt-dlp/**: Scripts for downloading media using yt-dlp (see [Shell/yt-dlp/README.md](./Shell/yt-dlp/README.md))
+    - `yt-dlp-from-txt.sh` - Download media from URLs listed in a text file
+    - `yt-dlp-tv-from-txt.sh` - Download TV episodes from a list, with automated episode naming
+    - `yt-dlp-from-txt-impersonate.sh` - Like yt-dlp-from-txt.sh but impersonates another user agent or platform
+  - **audio-transfer/**: Scripts for processing and transferring audio files (see [Shell/audio-transfer/README.md](./Shell/audio-transfer/README.md))
+    - `append-mp3.sh` - Append .mp3 extension to files in a directory
+    - `ssh-wav-mp3.sh` - Transfer audio files (WAV/MP3) to a remote server via SSH
+    - `ssh-wav-mp3-master-stems.sh` - Transfer master audio files while handling stem files
   - `remote_mount.sh` - Mount remote filesystem via SSHFS with VPN bypass
-  - `yt-dlp-from-txt.sh` - Download media from URLs listed in a text file
-  - `yt-dlp-tv-from-txt.sh` - Same as yt-dlp-from-txt but with automated naming of episodes
-  - `ssh_wav-mp3.sh` - Transfer audio files (WAV/MP3) to a remote server via SSH
-  - `ssh-wav-mp3-master-stems.sh` - Transfer master audio files while handling stem files
 
 ## Requirements
 

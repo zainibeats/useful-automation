@@ -1,41 +1,30 @@
 # Shell Scripts
 
-This directory contains Bash shell scripts for media downloads and file transfers
+This directory contains Bash shell scripts for media downloads, file transfers, and remote operations. Scripts are organized by purpose in subdirectories.
 
-## Scripts
+## Directory Structure
 
-### append-mp3.sh
+- **yt-dlp/**: Scripts for downloading media using yt-dlp
+- **audio-transfer/**: Scripts for processing and transferring audio files
+- **remote_mount.sh**: Mounts remote filesystem via SSHFS with Mullvad VPN's mullvad-exclude functionality
 
-Appends .mp3 extension to all files in a specified directory
+## yt-dlp Scripts
 
-#### Requirements
-- Bash shell environment
-- Write permissions in target directory
+See [yt-dlp/README.md](./yt-dlp/README.md) for details on:
+- yt-dlp-from-txt.sh
+- yt-dlp-tv-from-txt.sh
+- yt-dlp-from-txt-impersonate.sh
 
-#### Usage
-1. Update the target directory:
-   ```bash
-   TARGET_DIR="/path/to/your/folder"
-   ```
+## Audio Transfer Scripts
 
-2. Make the script executable:
-   ```bash
-   chmod +x append-mp3.sh
-   ```
+See [audio-transfer/README.md](./audio-transfer/README.md) for details on:
+- append-mp3.sh
+- ssh-wav-mp3.sh
+- ssh-wav-mp3-master-stems.sh
 
-3. Run the script:
-   ```bash
-   ./append-mp3.sh
-   ```
-
-#### Features
-- Processes all files in target directory
-- Adds .mp3 extension to each file
-- Skips directories and special files
-- Simple error handling for directory validation
+## Other Scripts
 
 ### remote_mount.sh
-
 Mounts remote filesystem via SSHFS with Mullvad VPN's mullvad-exclude functionality
 
 #### Requirements
@@ -49,12 +38,10 @@ Mounts remote filesystem via SSHFS with Mullvad VPN's mullvad-exclude functional
    server="user@serverip"     # Your SSH username and server
    port="customport"          # Your SSH port (or 22 for default)
    ```
-
 2. Make the script executable:
    ```bash
    chmod +x remote_mount.sh
    ```
-
 3. Run the script:
    ```bash
    ./remote_mount.sh
@@ -66,39 +53,6 @@ Mounts remote filesystem via SSHFS with Mullvad VPN's mullvad-exclude functional
 - Maintains connection with keepalive settings
 - Bypasses VPN for mount connection
 - Verifies successful mounting
-
-### yt-dlp-from-txt.sh
-
-Downloads media from a list of URLs using yt-dlp
-
-#### Requirements
-- yt-dlp installed
-- Bash shell environment
-
-#### Usage
-1. Update the script variables:
-   ```bash
-   URL_FILE="/path/to/txt/file"      # File containing URLs, one per line
-   DOWNLOAD_DIR="/home/user/downloads"  # Directory to save downloads
-   ```
-
-2. Make the script executable:
-   ```bash
-   chmod +x yt-dlp-from-txt.sh
-   ```
-
-3. Run the script:
-   ```bash
-   ./yt-dlp-from-txt.sh
-   ```
-
-### yt-dlp-tv-from-txt.sh
-
-#### Requirements
-- yt-dlp installed
-- Bash shell environment
-
-#### Usage
 1. Update the script variables:
    ```bash
    URL_FILE="/path/to/txt/file"      # File containing URLs, one per line
