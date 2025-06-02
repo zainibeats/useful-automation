@@ -7,6 +7,7 @@ This directory contains Bash shell scripts for media downloads, file transfers, 
 - **yt-dlp/**: Scripts for downloading media using yt-dlp
 - **audio-transfer/**: Scripts for processing and transferring audio files
 - **remote_mount.sh**: Mounts remote filesystem via SSHFS with Mullvad VPN's mullvad-exclude functionality
+- **nfs-mount.sh**: Mounts NFS shares with automatic directory creation and mount verification
 
 ## yt-dlp Scripts
 
@@ -23,6 +24,41 @@ See [audio-transfer/README.md](./audio-transfer/README.md) for details on:
 - ssh-wav-mp3-master-stems.sh
 
 ## Other Scripts
+
+### nfs-mount.sh
+Mounts NFS shares with automatic directory creation and mount verification
+
+#### Requirements
+- NFS client utilities installed
+- Root/sudo access
+- Network access to NFS server
+- Proper export permissions on NFS server
+
+#### Usage
+1. Edit the configuration section at the top of the script:
+   ```bash
+   SERVER_IP="192.168.1.100"       # Change to your NFS server IP
+   NFS_SHARE="/mnt/pool/jellyfin_data"      # Change to your NFS share path
+   MOUNT_POINT="/home/<username>/remote_mount/truenas_mount/"    # Change to your local mount directory
+   NFS_OPTIONS=""            # Change mount options if needed (e.g., "vers=3,nolock")
+   ```
+
+2. Make the script executable:
+   ```bash
+   chmod +x nfs-mount.sh
+   ```
+
+3. Run the script with sudo:
+   ```bash
+   sudo ./nfs-mount.sh
+   ```
+
+#### Features
+- Creates mount directory if it doesn't exist
+- Verifies mount success
+- Checks for existing mounts to prevent duplicates
+- Provides detailed error messages for troubleshooting
+- Displays mount information after successful connection
 
 ### remote_mount.sh
 Mounts remote filesystem via SSHFS with Mullvad VPN's mullvad-exclude functionality
