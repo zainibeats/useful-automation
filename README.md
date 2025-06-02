@@ -20,7 +20,8 @@ A collection of utility scripts for various file operations, media downloads, an
     - `append-mp3.sh` - Append .mp3 extension to files in a directory
     - `ssh-wav-mp3.sh` - Transfer audio files (WAV/MP3) to a remote server via SSH
     - `ssh-wav-mp3-master-stems.sh` - Transfer master audio files while handling stem files
-  - `remote_mount.sh` - Mount remote filesystem via SSHFS with VPN bypass
+  - `sshfs-mount.sh` - Mount remote filesystem via SSHFS with VPN bypass
+  - `nfs-mount.sh` - Mount NFS shares with automatic directory creation and verification
 
 ## Requirements
 
